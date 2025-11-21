@@ -27,3 +27,15 @@ func change_state (state_name):
 	new_state.enter()
 	
 	print("change state : " + state_name)
+
+func _process(delta: float) -> void:
+	if current_state !=null:
+		current_state.update(delta)
+
+func _physics_process(delta: float) -> void:
+	if current_state != null:
+		current_state.physics__update(delta)
+
+func _on_navigation_agent_3d_target_reached() -> void:
+	if current_state != null:
+		current_state.navigation_complete()

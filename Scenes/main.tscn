@@ -99,3 +99,5 @@ script = ExtResource("7_6bp64")
 [node name="Wander" type="Node" parent="AI/StateMachine"]
 
 [node name="Chase" type="Node" parent="AI/StateMachine"]
+
+[connection signal="target_reached" from="AI/NavigationAgent3D" to="AI/StateMachine" method="_on_navigation_agent_3d_target_reached"]
