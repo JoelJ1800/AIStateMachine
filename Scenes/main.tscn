@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://tpc44e155vxg"]
+[gd_scene load_steps=13 format=3 uid="uid://tpc44e155vxg"]
 
 [ext_resource type="Material" uid="uid://drm3clvqpis42" path="res://Models/Terrain/TerrainMaterial.tres" id="1_8gbba"]
 [ext_resource type="ArrayMesh" uid="uid://cndcxj6gf0smr" path="res://Models/Terrain/Terrain.obj" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://cf1pwgl0y0mi6" path="res://Player Controller/Player.tscn" id="3_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwxdl6tkvd55k" path="res://Models/Terrain/Rock_0/Rock.tscn" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://cqog8ud3m0stv" path="res://Scripts/ai_controller.gd" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://c2tcjs26j25ww" path="res://Models/Alien/alien-bug.glb" id="5_kry3j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8gbba"]
@@ -80,6 +81,7 @@ shape = SubResource("ConcavePolygonShape3D_8gbba")
 
 [node name="AI" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.239977, 0, -4.6815305)
+script = ExtResource("5_21xkr")
 
 [node name="alien-bug" parent="AI" instance=ExtResource("5_kry3j")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
