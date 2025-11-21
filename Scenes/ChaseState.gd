@@ -28,14 +28,11 @@ func update(delta):
 	
 	if controller.player_distance > lose_interest_range:
 		if $"../AIDelay".time_left:
-			print("losing interest")
 			return
 		elif controller.player_distance < lose_interest_range:
 			$"../AIDelay".stop()
-			print("gained interest")
 		else:
 			$"../AIDelay".start()
-			print("starting to lose interest")
 
 
 
