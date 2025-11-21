@@ -93,12 +93,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58843994, 0)
 shape = SubResource("CapsuleShape3D_kry3j")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="AI"]
+debug_enabled = true
 
-[node name="StateMachine" type="Node" parent="AI"]
+[node name="StateMachine" type="Node" parent="AI" node_paths=PackedStringArray("default_state")]
 script = ExtResource("7_6bp64")
+default_state = NodePath("Wander")
 
 [node name="Wander" type="Node" parent="AI/StateMachine"]
 script = ExtResource("8_344ge")
+controller_path = NodePath("../..")
 
 [node name="Chase" type="Node" parent="AI/StateMachine"]
 
