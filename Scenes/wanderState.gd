@@ -4,11 +4,13 @@ var home_position: Vector3
 @export var max_wander_range: float = 6
 @export var min_wait_time: float = 0.2
 @export var max_wait_time: float = 2.0
+@export var chase_range:float = 4.0
 
 
 func enter():
 	super.enter()
 	home_position = controller.position
+	controller.look_at_player = false
 	new_wander_poosition()
 
 
@@ -23,3 +25,7 @@ func navigation_complete():
 	if not active:
 		return
 	new_wander_poosition()
+
+func update(delta):
+	if controller.player_distance < chase_range:
+		state_machine.change_state("Chase")

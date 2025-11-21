@@ -98,14 +98,20 @@ debug_enabled = true
 
 [node name="StateMachine" type="Node" parent="AI" node_paths=PackedStringArray("default_state")]
 script = ExtResource("7_6bp64")
-default_state = NodePath("Chase")
+default_state = NodePath("Wander")
 
 [node name="Wander" type="Node" parent="AI/StateMachine"]
 script = ExtResource("8_344ge")
+max_wander_range = 10.0
+max_wait_time = 3.0
 controller_path = NodePath("../..")
 
 [node name="Chase" type="Node" parent="AI/StateMachine"]
 script = ExtResource("9_ynf5e")
 controller_path = NodePath("../..")
 
+[node name="AIDelay" type="Timer" parent="AI/StateMachine"]
+one_shot = true
+
 [connection signal="target_reached" from="AI/NavigationAgent3D" to="AI/StateMachine" method="_on_navigation_agent_3d_target_reached"]
+[connection signal="timeout" from="AI/StateMachine/AIDelay" to="AI/StateMachine/Chase" method="_on_ai_delay_timeout"]
