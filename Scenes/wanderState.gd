@@ -11,6 +11,7 @@ func enter():
 	super.enter()
 	home_position = controller.position
 	controller.look_at_player = false
+	await get_tree().process_frame 
 	new_wander_poosition()
 
 
