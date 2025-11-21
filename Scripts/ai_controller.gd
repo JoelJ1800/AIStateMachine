@@ -14,3 +14,16 @@ var player_distance: float
 @onready var agent: NavigationAgent3D = get_node("NavigationAgent3D")
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var player = get_tree().get_nodes_in_group("Player")[0]
+
+
+func _process(delta: float) -> void:
+	if player != null:
+		player_distance = position.distance_to(player.position)
+
+
+func _physics_process(delta: float) -> void:
+	pass
+
+
+func move_to_position(to_position: Vector3, adjust_pos: bool = true):
+	pass
