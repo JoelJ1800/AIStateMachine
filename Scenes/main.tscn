@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://tpc44e155vxg"]
+[gd_scene load_steps=15 format=3 uid="uid://tpc44e155vxg"]
 
 [ext_resource type="Material" uid="uid://drm3clvqpis42" path="res://Models/Terrain/TerrainMaterial.tres" id="1_8gbba"]
 [ext_resource type="ArrayMesh" uid="uid://cndcxj6gf0smr" path="res://Models/Terrain/Terrain.obj" id="2_jjvhh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cqog8ud3m0stv" path="res://Scripts/ai_controller.gd" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://c2tcjs26j25ww" path="res://Models/Alien/alien-bug.glb" id="5_kry3j"]
 [ext_resource type="Script" uid="uid://seuhdqq2mws8" path="res://Scenes/StateMachine.gd" id="7_6bp64"]
+[ext_resource type="Script" uid="uid://nu6qr3qksmle" path="res://Scenes/wanderState.gd" id="8_344ge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8gbba"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -81,7 +82,7 @@ skeleton = NodePath("../../../..")
 shape = SubResource("ConcavePolygonShape3D_8gbba")
 
 [node name="AI" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44662, 1.7594261, -6.2028)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.141987, 0.004554987, -18.63411)
 script = ExtResource("5_21xkr")
 
 [node name="alien-bug" parent="AI" instance=ExtResource("5_kry3j")]
@@ -97,6 +98,7 @@ shape = SubResource("CapsuleShape3D_kry3j")
 script = ExtResource("7_6bp64")
 
 [node name="Wander" type="Node" parent="AI/StateMachine"]
+script = ExtResource("8_344ge")
 
 [node name="Chase" type="Node" parent="AI/StateMachine"]
 
