@@ -80,7 +80,7 @@ skeleton = NodePath("../../../..")
 shape = SubResource("ConcavePolygonShape3D_8gbba")
 
 [node name="AI" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.239977, 0, -4.6815305)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44662, 1.7594261, -6.2028)
 script = ExtResource("5_21xkr")
 
 [node name="alien-bug" parent="AI" instance=ExtResource("5_kry3j")]
