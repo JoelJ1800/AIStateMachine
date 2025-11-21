@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://tpc44e155vxg"]
+[gd_scene load_steps=14 format=3 uid="uid://tpc44e155vxg"]
 
 [ext_resource type="Material" uid="uid://drm3clvqpis42" path="res://Models/Terrain/TerrainMaterial.tres" id="1_8gbba"]
 [ext_resource type="ArrayMesh" uid="uid://cndcxj6gf0smr" path="res://Models/Terrain/Terrain.obj" id="2_jjvhh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dwxdl6tkvd55k" path="res://Models/Terrain/Rock_0/Rock.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://cqog8ud3m0stv" path="res://Scripts/ai_controller.gd" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://c2tcjs26j25ww" path="res://Models/Alien/alien-bug.glb" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://seuhdqq2mws8" path="res://Scenes/StateMachine.gd" id="7_6bp64"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8gbba"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -91,3 +92,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58843994, 0)
 shape = SubResource("CapsuleShape3D_kry3j")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="AI"]
+
+[node name="StateMachine" type="Node" parent="AI"]
+script = ExtResource("7_6bp64")
+
+[node name="Wander" type="Node" parent="AI/StateMachine"]
+
+[node name="Chase" type="Node" parent="AI/StateMachine"]
